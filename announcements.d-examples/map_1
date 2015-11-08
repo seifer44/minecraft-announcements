@@ -1,0 +1,3 @@
+!map
+!map 1
+["",{"text":"Visit "},{"text":"http://WEBSITE.IO","color":"gold","clickEvent":{"action":"open_url","value":""}},{"text":" to view the world map. This map is updated daily at 3 AM. You can click the Markers button in the top right to view features such as a players last known location and cities!","color":"none","underlined":false}]
