@@ -60,7 +60,7 @@ fi
 
 if [ $(ls announcements.d | wc -l) -eq 0 ]
 then
-	echo -e "Directory announcements.d has nothing in it! This script won't work unless you define some anouncements!\nRead the README for more info. Exiting error code 1."
+	echo -e "Directory announcements.d has nothing in it! This script won't work unless you define some announcements!\nRead the README for more info. Exiting error code 1."
 	exit 1
 fi
 
