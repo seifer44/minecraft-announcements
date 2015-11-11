@@ -3,10 +3,10 @@
 ##############################################################
 #
 # Vanilla Minecraft Announcements Script
-# 2015-11-08
+# 2015-11-10
 #
 # https://github.com/seifer44/minecraft-announcements
-# Version 1.0.0
+# Version 1.0.1
 #
 ##############################################################
 #
@@ -33,6 +33,9 @@
 # $MINECRAFT/logs/latest.log
 loglocation=/opt/minecraft/service/logs/latest.log
 
+# The full path of the script. No trailing /
+scriptlocation=/opt/minecraft/scripts
+
 
 
 ######################
@@ -52,19 +55,19 @@ as_user() {
 #      STARTUP       #
 ######################
 
-if [ ! -d announcements.d ]
+if [ ! -d $scriptlocation/announcements.d ]
 then
-	mkdir announcements.d
-	echo "Directory announcements.d was missing! Created it."
+	mkdir $scriptlocation/announcements.d
+	echo "Directory $scriptlocation/announcements.d was missing! Created it."
 fi
 
-if [ $(ls announcements.d | wc -l) -eq 0 ]
+if [ $(ls $scriptlocation/announcements.d | wc -l) -eq 0 ]
 then
-	echo -e "Directory announcements.d has nothing in it! This script won't work unless you define some announcements!\nRead the README for more info. Exiting error code 1."
+	echo -e "Directory $scriptlocation/announcements.d has nothing in it! This script won't work unless you define some announcements!\nRead the README for more info. Exiting error code 1."
 	exit 1
 fi
 
-cd announcements.d
+cd $scriptlocation/announcements.d
 
 
 
