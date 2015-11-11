@@ -6,7 +6,7 @@
 # 2015-11-10
 #
 # https://github.com/seifer44/minecraft-announcements
-# Version 1.0.1
+# Version 1.0.2
 #
 ##############################################################
 #
@@ -35,6 +35,9 @@ loglocation=/opt/minecraft/service/logs/latest.log
 
 # The full path of the script. No trailing /
 scriptlocation=/opt/minecraft/scripts
+
+# The screen name of your Minecraft instance.
+screenname=minecraft
 
 
 
@@ -181,7 +184,7 @@ do
 		if [[ "$line" == *${announcechecks[$count]} ]]
 		then
 #			echo "   Found match!" # Debug
-			as_user "screen -p 0 -S minecraft -X stuff \"tellraw $useronline $(echo ${announcemsgs[$count]} | sed 's/"/\\"/g') $(printf \\r)\""
+			as_user "screen -p 0 -S $screenname -X stuff \"tellraw $useronline $(echo ${announcemsgs[$count]} | sed 's/"/\\"/g') $(printf \\r)\""
 			
 			
 			
@@ -193,7 +196,7 @@ do
 				then
 #					echo "   Higher number of arguments found. Announcing." # Debug
 					# If you want to use a different message, make sure you escape EVERY " and ' except for the very first and last ".
-					as_user "screen -p 0 -S minecraft -X stuff \"tellraw $useronline $( echo "[\"\",{\"text\":\"There are more arguments for $firstarg\",\"color\":\"dark_green\"},{\"text\":\". Try $firstarg $((secondbangarg + 1)) for more info.\"}]"| sed 's/"/\\"/g')$(printf \\r)\""
+					as_user "screen -p 0 -S $screenname -X stuff \"tellraw $useronline $( echo "[\"\",{\"text\":\"There are more arguments for $firstarg\",\"color\":\"dark_green\"},{\"text\":\". Try $firstarg $((secondbangarg + 1)) for more info.\"}]"| sed 's/"/\\"/g')$(printf \\r)\""
 				fi
 			fi
 		fi
